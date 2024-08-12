@@ -42,6 +42,7 @@ public class Token {
     }
 
     public boolean isLoggedOut() {
+
         return loggedOut;
     }
 
