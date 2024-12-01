@@ -27,16 +27,24 @@ public class PaymentController {
         return  paymentService.updatePayment(bookingId,payment);
     }
 
-    @GetMapping("/all_payments")
 
+    @GetMapping("/all_payments")
     public ArrayList<Payment> getAllPayements(){
         return paymentService.getAllPayements();
     }
 
 
+
     @DeleteMapping("delete_payment/{paymentId}")
+
     public void deletePayment(@PathVariable("paymentId") int paymentId){
         paymentService.deletePayment(paymentId);
     }
+
+
+
+
 }
+
+
 

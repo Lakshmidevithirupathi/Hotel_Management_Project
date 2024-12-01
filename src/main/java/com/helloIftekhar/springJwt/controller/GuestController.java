@@ -1,7 +1,5 @@
 package com.helloIftekhar.springJwt.controller;
 
-
-
 import com.helloIftekhar.springJwt.model.Guest;
 import com.helloIftekhar.springJwt.service.GuestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 
 @RestController
+
 public class GuestController {
 
     @Autowired
@@ -39,5 +38,12 @@ public class GuestController {
     public void deleteGuest(@PathVariable int guestId){
         guestService.deleteGuest(guestId);
     }
-
 }
+
+
+
+
+
+
+
+

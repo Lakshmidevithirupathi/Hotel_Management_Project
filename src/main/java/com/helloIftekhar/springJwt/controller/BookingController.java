@@ -16,7 +16,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-//@RequestMapping("/api/bookings")
 public class BookingController {
 
     @Autowired
@@ -48,7 +47,6 @@ public class BookingController {
     public String bookRoom(@RequestBody Room room){
         return  bookingService.bookRoom(room);
     }
-
 
 
 }

@@ -40,7 +40,6 @@ public class BookingService implements BookingRepository {
     @Override
     public ArrayList<Booking> getAllBookings(){
         List<Booking> bookingList=bookingJpaRepository.findAll();
-//        Booking booking=new Booking();
         ArrayList<Booking> bookings=new ArrayList<>(bookingList);
 
         return bookings;
@@ -62,7 +61,7 @@ public class BookingService implements BookingRepository {
 
 
     @Override
-    public String bookRoom(Room room){
+    public String bookRoom(Room room) {
         Room newRoom = roomJpaRepository.findById(room.getRoomId()).orElseThrow(() -> new RoomNotFoundException("Room not found"));
 
 
@@ -70,31 +69,19 @@ public class BookingService implements BookingRepository {
             return "Room is not available";
         }
 
-        // Create and save the new booking
-        Booking booking=new Booking();
+        Booking booking = new Booking();
         booking.setCheckInDate(booking.getCheckInDate());
         booking.setCheckOutDate(booking.getCheckOutDate());
         booking.setBookingDate(booking.getBookingDate());
         booking.setStatus(booking.getStatus());
         booking.setTotalAmount(booking.getTotalAmount());
-//        bookingJpaRepository.save(booking);
-
-        // Mark room as not available
         room.setAvailable(false);
         roomJpaRepository.save(room);
         booking.setRoom(room);
 
-
         bookingJpaRepository.save(booking);
-
-
-//        return "Room booked successfully";
         return "Room booked successfully";
 
     }
-
-
-
-
 
 }
